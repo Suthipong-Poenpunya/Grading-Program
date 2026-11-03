@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'THSarabunPSK';
+  src: local('THSarabunPSK'), local('TH Sarabun PSK'), local('TH Sarabun New'), local('Sarabun');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'THSarabunPSK';
+  src: local('THSarabunPSK Bold'), local('THSarabunPSK-Bold'), local('TH Sarabun New Bold'), local('Sarabun Bold');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Sarabun', 'THSarabunPSK', sans-serif;
+}
+
+.font-thsarabun {
+  font-family: 'THSarabunPSK', 'TH Sarabun New', 'Sarabun', sans-serif;
+}
+
+/* Official document styling for Report & PDF Export */
+.report-document {
+  font-family: 'THSarabunPSK', 'TH Sarabun New', 'Sarabun', sans-serif;
+  line-height: 1.45;
+  color: #000000;
+}
+
+.report-document table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.report-document th,
+.report-document td {
+  border: 1px solid #1e293b;
+  padding: 4px 6px;
+}
+
+/* Print media rules for crisp A4 official output */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only-container {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .report-document tr {
+    page-break-inside: avoid;
+  }
+}
+
